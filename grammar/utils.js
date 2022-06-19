@@ -107,7 +107,8 @@ class Utils {
      * @return {*}
      */
     applyPrefix(prefixes, value) {
-        // console.log('applyPrefix', prefixes, value);
+        console.log('applyPrefix', prefixes, value);
+        throw new Error('unimplemented');
         if (this.context.async) {
             return this.applyPrefixAsync(prefixes, value);
         } else {
@@ -128,7 +129,8 @@ class Utils {
     }
 
     applyPostfix(value, postfix) {
-        // console.log('applyPostfix', value, postfix);
+        console.log('applyPostfix', value, postfix);
+        throw new Error('unimplemented');
         if (this.context.async) {
             return this.applyPostfixAsync(value, postfix);
         } else {
@@ -161,17 +163,12 @@ class Utils {
     }
 
     applyInfix(value1, infix, value2) {
-        if (this.context.async) {
-            return this.applyInfixAsync(value1, infix, value2)
-        } else {
-            const res1 = this.extractRefValue(value1);
-            const res2 = this.extractRefValue(value2);
-            return this._applyInfix(res1, infix, res2)
-        }
+        return value1 + infix + value2;
     }
 
     applyIntersect(refs) {
-        // console.log('applyIntersect', refs);
+        console.log('applyIntersect', refs);
+        throw Error('unimplemented');
         if (this.isFormulaError(refs[0]))
             return refs[0];
         if (!refs[0].ref)
@@ -259,6 +256,8 @@ class Utils {
     }
 
     applyUnion(refs) {
+        console.log('applyUnion', refs);
+        throw new Error('unimplemented');
         const collection = new Collection();
         for (let i = 0; i < refs.length; i++) {
             if (this.isFormulaError(refs[i]))
@@ -276,6 +275,8 @@ class Utils {
      // * @return {{ref: {from: {col: number, row: number}, to: {col: number, row: number}}}}
      */
     applyRange(refs) {
+        console.log('applyRange', refs);
+        throw new Error('unimplemented');
         let res, maxRow = -1, maxCol = -1, minRow = MAX_ROW + 1, minCol = MAX_COLUMN + 1;
         refs.forEach(ref => {
             if (this.isFormulaError(ref))
